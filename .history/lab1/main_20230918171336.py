@@ -1,37 +1,32 @@
 from enum import Enum
 
+
 class Protocol(Enum):
     HTTP = "HTTP"
     HTTPS = "HTTPS"
     FTP = "FTP"
     SSH = "SSH"
 
+
 class Encryption(Enum):
     TLS = "TLS"
     SSL = "SSL"
     NONE = "NONE"
 
+
 class IPVersion(Enum):
     V4 = "v4"
     V6 = "v6"
 
+
 class InternetConnection:
-    def __init__(self, protocol: Protocol = Protocol.HTTP, encryption: Encryption = None, 
-                 ip_version: IPVersion = IPVersion.V4, **kwargs):
+    def __init__(self, protocol=Protocol.HTTP, encryption=None, ip_version=IPVersion.V4, **kwargs):
         self.protocol = protocol
         self.encryption = encryption
         self.ip_version = ip_version
         self.additional_properties = kwargs
 
-    def __getitem__(self, key):
-        if hasattr(self, key):
-            return getattr(self, key)
-        elif key in self.additional_properties:
-            return self.additional_properties[key]
-        else:
-            raise KeyError(f"'{key}' is not a valid property of InternetConnection")
-
-    def connect(self) -> None:
+    def connect(self):
         connection_info = f"Параметри з'єднання:\n"
         connection_info += f"Протокол: {self.protocol.value}\n"
 
@@ -47,13 +42,13 @@ class InternetConnection:
 
         print(connection_info)
 
-# Приклади
+
+# Приклади створення об'єктів з різними конфігураціями
 connection1 = InternetConnection(protocol=Protocol.HTTPS, encryption=Encryption.TLS, ip_version=IPVersion.V6, port=443)
 connection2 = InternetConnection(encryption=Encryption.SSL, port=22, username="user123")
 connection3 = InternetConnection(ip_version=IPVersion.V4, timeout=30)
 
-# Виклик методу connect
+# Виклик методу connect для кожного об'єкта
 connection1.connect()
 connection2.connect()
 connection3.connect()
- цей обясни

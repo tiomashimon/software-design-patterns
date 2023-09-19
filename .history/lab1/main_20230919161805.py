@@ -52,7 +52,7 @@ connection1 = InternetConnection(protocol=Protocol.HTTPS, encryption=Encryption.
 connection2 = InternetConnection(encryption=Encryption.SSL, port=22, username="user123")
 connection3 = InternetConnection(ip_version=IPVersion.V4, timeout=30)
 
-# Виклик методу connect
+# Виклик методу 
 connection1.connect()
 connection2.connect()
 connection3.connect()

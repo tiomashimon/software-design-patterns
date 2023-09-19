@@ -47,12 +47,12 @@ class InternetConnection:
 
         print(connection_info)
 
-# Приклади
+# Приклади створення об'єктів з різними конфігураціями
 connection1 = InternetConnection(protocol=Protocol.HTTPS, encryption=Encryption.TLS, ip_version=IPVersion.V6, port=443)
 connection2 = InternetConnection(encryption=Encryption.SSL, port=22, username="user123")
 connection3 = InternetConnection(ip_version=IPVersion.V4, timeout=30)
 
-# Виклик методу connect
+# Виклик методу connect для кожного об'єкта
 connection1.connect()
 connection2.connect()
 connection3.connect()
