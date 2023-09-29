@@ -1,7 +1,7 @@
 from typing import List
 
 
-# Інтерфейс для класу Digit, який відповідає за вивід однієї цифри
+# Інтерфейс для класу Digit
 class IDigitPrinter:
     def print(self) -> List[str]:
         pass
@@ -29,7 +29,7 @@ class Digit(IDigitPrinter):
         return digit_pattern
 
 
-# Реалізація класу Number, який представляє число як масив цифр та виводить його зSSSірочками
+# Реалізація класу Number, який представляє число як масив цифр та виводить його
 class Number:
     def __init__(self, number: int):
         self.digits = [Digit(int(digit)) for digit in str(number)]
